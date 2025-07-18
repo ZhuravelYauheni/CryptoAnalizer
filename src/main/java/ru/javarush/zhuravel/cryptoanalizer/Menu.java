@@ -10,7 +10,7 @@ public class Menu {
     private Menu() {
     }
 
-    private static final String TITLE = "Это крипто-анализатор";
+    private static final String TITLE = "Это крипто-анализатор (по крайней мере, так задумывалось)";
     private static final String NAVIGATE = "Для навигации по меню используйте цифровые клавиши (NumPad) от 0 до 5";
     private static final String CASE_0 = "0 - дополнительная информация";
     private static final String CASE_1 = "1 - зашифровать текст с помощью ключа-значения";
@@ -22,6 +22,10 @@ public class Menu {
     private static final String WRONGCHOICE = "Выберите один из предлагаемых вариантов";
     private static int menuShownCounter = 0;
     private static int option;
+
+    public static String getWrongchoice(){
+        return WRONGCHOICE;
+    }
 
     private static void showMainMenu() {
         if (menuShownCounter == 0) {
@@ -51,7 +55,7 @@ public class Menu {
                     Info.showInfo();
                     break;
                 case "1":
-                    System.out.println("пока что думаем");
+                    Coder.codeMenuNavigation();
                     break;
                 case "2":
                     System.out.println("и пока что думаем");
@@ -64,6 +68,7 @@ public class Menu {
                     break;
                 case "5":
                     System.out.println(BYE);
+                    scanner.close();
                     isRunning = false;
                     break;
                 default:
