@@ -6,7 +6,6 @@ public class Menu {
     /*
     В этом классе я попробую изобразить что-то похожее на юзабельное меню программы
      */
-
     private Menu() {
     }
 
@@ -45,20 +44,21 @@ public class Menu {
     }
 
     public static void menuNavigation() {
-        showMainMenu();
-        Scanner scanner = new Scanner(System.in);
-        boolean isRunning = true;
-        while (isRunning) {
+        Scanner scanner = new Scanner(System.in); // Выносим Scanner на уровень класса
+
+        while (true) {
+            showMainMenu();
             String input = scanner.nextLine();
+
             switch (input) {
                 case "0":
                     Info.showInfo();
                     break;
                 case "1":
-                    Coder.codeMenuNavigation();
+                    CoderGenerator.codeMenuNavigation(scanner, 1); // Передаём Scanner
                     break;
                 case "2":
-                    System.out.println("и пока что думаем");
+                    CoderGenerator.codeMenuNavigation(scanner, -1);
                     break;
                 case "3":
                     System.out.println("тут завал");
@@ -69,14 +69,11 @@ public class Menu {
                 case "5":
                     System.out.println(BYE);
                     scanner.close();
-                    isRunning = false;
-                    break;
+                    return; // Выход из метода
                 default:
                     System.out.println(WRONGCHOICE);
-                    break;
             }
-            if (!input.equals("5"))showMainMenu();
         }
-        }
+    }
     }
 
