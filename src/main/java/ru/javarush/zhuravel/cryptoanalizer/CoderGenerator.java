@@ -31,10 +31,16 @@ public class CoderGenerator {
             switch (input) {
                 case "1":
                     System.out.println("в разработке");
+                    Cipher cipher = new Cipher();
+                    cipher.direction = 1;
+                    cipher.lang = Lang.RU;
 
                     break;
                 case "2":
                     System.out.println("в разработке");
+                    Cipher cipher2 = new Cipher();
+                    cipher2.direction = 1;
+                    cipher2.lang = Lang.EN;
                     break;
                 case "0":
                     return; // Просто выходим из метода

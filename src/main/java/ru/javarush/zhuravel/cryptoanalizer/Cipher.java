@@ -13,6 +13,13 @@ public class Cipher {
     private static final char[] RU_ALPHABET_CHARS = RU_ALPHABET.toCharArray();
     private static final int RU_ALPHABET_LENGTH = RU_ALPHABET.length();
 
+    int direction;
+    List<String> input;
+    List<String> output;
+    int key;
+    Lang lang;
+
+
     public static List<String> encrypt(int direction, List<String> inputTextList, int key, Lang lang) {
         List<String> outputTextList = new ArrayList<>();
         String alphabet = (lang == Lang.EN) ? EN_ALPHABET : RU_ALPHABET;
